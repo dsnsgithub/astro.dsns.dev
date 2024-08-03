@@ -97,9 +97,9 @@ function DiscordCard(props: { visible: boolean; }) {
 			<h2 className="text-2xl font-bold mb-4">Status</h2>
 			<div className="flex items-center space-x-4">
 				<div className="flex-shrink-0 relative" ref={secondAnimate}>
-					{largeImage ? <img src={largeImage} alt="Activity Image" className="w-16 h-16 rounded" /> : <></>}
-					{smallImage && !largeImage ? <img src={smallImage} alt="Activity Image" className="w-16 h-16 rounded" /> : <></>}
-					{smallImage && largeImage ? <img src={smallImage} alt="Activity Image" className="w-6 h-6 rounded right-0 bottom-0 absolute ring-3" /> : <></>}
+					{largeImage ? <img src={largeImage} alt="activity large icon" className="w-16 h-16 rounded" /> : <></>}
+					{smallImage && !largeImage ? <img src={smallImage} alt="activity icon" className="w-16 h-16 rounded" /> : <></>}
+					{smallImage && largeImage ? <img src={smallImage} alt="activity small icon" className="w-6 h-6 rounded right-0 bottom-0 absolute ring-3" /> : <></>}
 				</div>
 
 				<div>

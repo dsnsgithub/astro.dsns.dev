@@ -77,7 +77,20 @@ import RecentProjects from "../components/RecentProjects.astro";
 			<div
 				class="scrollbar scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-thumb-viola-300 scrollbar-track-viola-200 scrollbar-w-2 overflow-y-scroll max-h-[100vw] lg:max-h-[30vw]"
 			>
-				<RecentProjects />
+				<RecentProjects server:defer>
+					<ul slot="fallback">
+						{
+							Array.from({ length: 5 }).map((_, i) => (
+								<li class="m-4 p-8 bg-viola-50 rounded-xl h-32">
+									<div class="flex flex-row flex-wrap justify-between">
+										<div class="bg-viola-200 w-32 h-6 rounded-xl" />
+										<div class="bg-viola-200 w-16 h-6 rounded-xl" />
+									</div>
+								</li>
+							))
+						}
+					</ul>
+				</RecentProjects>
 			</div>
 		</div>
 	</div>

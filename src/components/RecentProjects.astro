@@ -13,7 +13,7 @@ const res = (await fetch("https://cors.dsns.dev/api.github.com/users/dsnsgithub/
 const result = res
 	.filter((repo) => repo.fork === false)
 	.sort((a, b) => new Date(b.pushed_at).getTime() - new Date(a.pushed_at).getTime())
-	.splice(0, 8);
+	.splice(0, 5);
 ---
 
 <ul>
