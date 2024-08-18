@@ -17,7 +17,7 @@
 		result = data
 			.filter((repo) => !repo.fork)
 			.sort((a, b) => new Date(b.pushed_at).getTime() - new Date(a.pushed_at).getTime())
-			.slice(0, 8);
+			.slice(0, 10);
 	})();
 
 	setTimeout(() => {
@@ -27,7 +27,7 @@
 
 {#if !delayOver || !result.length}
 	<div class="m-4 grid gap-6 lg:grid-cols-2">
-		{#each Array(8) as _, i}
+		{#each Array(10) as _, i}
 			<div class="h-40 rounded-xl bg-viola-50 p-8">
 				<div class="flex flex-row justify-between gap-4">
 					<div class="basis-3/4">
@@ -46,17 +46,21 @@
 		{#each result as repo}
 			<div class="rounded-xl bg-viola-50 p-8 shadow-md transition duration-500 hover:scale-[1.01]">
 				<a href={repo.html_url} target="_blank" rel="noopener noreferrer" class="block">
-					<div class="flex flex-row justify-between gap-4">
-						<div>
+					<div class="flex flex-row justify-between gap-10">
+						<div class="flex flex-col gap-1">
 							<div class="flex justify-between">
 								<p class="text-xl font-bold">{repo.name}</p>
 							</div>
-							{#if repo.description}
-								<p>{repo.description}</p>
-							{/if}
-							<p title={new Date(repo.pushed_at).toLocaleString()}>
-								Last updated: {new Date(repo.pushed_at).toLocaleDateString()}
-							</p>
+							<div>
+								{#if repo.description}
+									<p>{repo.description}</p>
+								{/if}
+							</div>
+							<div>
+								<p title={new Date(repo.pushed_at).toLocaleString()}>
+									Last updated: {new Date(repo.pushed_at).toLocaleDateString()}
+								</p>
+							</div>
 						</div>
 						<div>
 							{#if repo.language}

@@ -55,11 +55,7 @@ import RecentProjects from "../components/RecentProjects.svelte";
 
 		<div class="m-2 rounded-lg bg-viola-100 p-8 shadow-lg">
 			<h2 class="mb-4 text-2xl font-bold">Github Repositories</h2>
-			<div
-				class="max-h-[100vw] overflow-y-scroll scrollbar scrollbar-track-viola-200 scrollbar-thumb-viola-300 scrollbar-track-rounded-full scrollbar-thumb-rounded-full scrollbar-w-2 lg:max-h-[30vw]"
-			>
-				<RecentProjects client:idle />
-			</div>
+			<RecentProjects client:idle />
 		</div>
 	</div>
 </Layout>
