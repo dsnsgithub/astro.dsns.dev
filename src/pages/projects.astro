@@ -5,12 +5,13 @@ import mcHead from "../assets/mchead.png";
 import betterHudIcon from "../assets/betterhud.png";
 import { Icon } from "astro-icon/components";
 import ProjectDescription from "../components/ProjectCard.astro";
+import RecentProjects from "../components/RecentProjects.svelte";
 ---
 
 <Layout title="dsns.dev" description="Check out what I do, and explore some of my projects.">
 	<div class="container mx-auto flex flex-col gap-10 px-6 md:px-8 lg:px-10 xl:px-48">
 		<div class="rounded-xl bg-viola-100 p-8">
-			<h1 class="text-3xl font-bold">Other Projects</h1>
+			<h1 class="text-2xl font-bold">Other Projects</h1>
 
 			<div class="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-2">
 				<ProjectDescription title="Recent Games" url="/recentgames" description="Find the status and recent games of any Hypixel player." tags={["React", "Hypixel API"]}>
@@ -49,6 +50,15 @@ import ProjectDescription from "../components/ProjectCard.astro";
 						<Icon name="mdi:tab-search" class="aspect-square h-[96px] w-[96px] basis-1/5 rounded-xl bg-viola-200 p-7 text-3xl text-viola-600 md:h-[128px] md:w-[128px]" />
 					</div>
 				</ProjectDescription>
+			</div>
+		</div>
+
+		<div class="m-2 rounded-lg bg-viola-100 p-8 shadow-lg">
+			<h2 class="mb-4 text-2xl font-bold">Github Repositories</h2>
+			<div
+				class="max-h-[100vw] overflow-y-scroll scrollbar scrollbar-track-viola-200 scrollbar-thumb-viola-300 scrollbar-track-rounded-full scrollbar-thumb-rounded-full scrollbar-w-2 lg:max-h-[30vw]"
+			>
+				<RecentProjects client:idle />
 			</div>
 		</div>
 	</div>

@@ -26,36 +26,46 @@
 </script>
 
 {#if !delayOver || !result.length}
-	<ul>
+	<div class="m-4 grid gap-6 lg:grid-cols-2">
 		{#each Array(8) as _, i}
-			<li class="m-4 h-32 rounded-xl bg-viola-50 p-8">
-				<div class="flex justify-between">
-					<div class="h-6 w-32 animate-pulse rounded-xl bg-viola-200" />
+			<div class="h-40 rounded-xl bg-viola-50 p-8">
+				<div class="flex flex-row justify-between gap-4">
+					<div class="basis-3/4">
+						<div class="flex justify-between">
+							<div class="h-6 w-32 animate-pulse rounded-xl bg-viola-200" />
+						</div>
+						<div class="mt-4 h-16 animate-pulse rounded-xl bg-viola-100" />
+					</div>
 					<div class="h-6 w-16 animate-pulse rounded-xl bg-viola-200" />
 				</div>
-				<div class="mt-4 h-10 animate-pulse rounded-xl bg-viola-100" />
-			</li>
+			</div>
 		{/each}
-	</ul>
+	</div>
 {:else}
-	<ul>
+	<div class="m-4 grid gap-6 lg:grid-cols-2">
 		{#each result as repo}
-			<li class="m-4 rounded-xl bg-viola-50 p-8 transition duration-500 hover:scale-[1.01]">
+			<div class="rounded-xl bg-viola-50 p-8 shadow-md transition duration-500 hover:scale-[1.01]">
 				<a href={repo.html_url} target="_blank" rel="noopener noreferrer" class="block">
-					<div class="flex justify-between">
-						<p class="text-xl font-bold">{repo.name}</p>
-						{#if repo.language}
-							<div class="rounded-xl bg-viola-200 p-2">{repo.language}</div>
-						{/if}
+					<div class="flex flex-row justify-between gap-4">
+						<div>
+							<div class="flex justify-between">
+								<p class="text-xl font-bold">{repo.name}</p>
+							</div>
+							{#if repo.description}
+								<p>{repo.description}</p>
+							{/if}
+							<p title={new Date(repo.pushed_at).toLocaleString()}>
+								Last updated: {new Date(repo.pushed_at).toLocaleDateString()}
+							</p>
+						</div>
+						<div>
+							{#if repo.language}
+								<div class="rounded-xl bg-viola-200 p-2">{repo.language}</div>
+							{/if}
+						</div>
 					</div>
-					{#if repo.description}
-						<p>{repo.description}</p>
-					{/if}
-					<p title={new Date(repo.pushed_at).toLocaleString()}>
-						Last updated: {new Date(repo.pushed_at).toLocaleDateString()}
-					</p>
 				</a>
-			</li>
+			</div>
 		{/each}
-	</ul>
+	</div>
 {/if}
