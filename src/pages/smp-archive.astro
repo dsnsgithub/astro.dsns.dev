@@ -232,7 +232,6 @@ margins.push(0);
 										{smp.missing && <span class="text-xs font-medium uppercase tracking-wide text-yellow-600">No World Available</span>}
 										<div class="mt-1 flex flex-wrap items-center gap-2 font-mono text-xs text-gray-400">
 											{smp.version && <span class="rounded bg-viola-200 px-1.5 py-0.5 text-viola-700">{smp.version}</span>}
-											{smp.size && <span>{smp.size}</span>}
 											{smp.players != null && (
 												<span class="group/players relative rounded bg-viola-200 px-1.5 py-0.5 text-viola-700" title={smp.playerNames.join(", ")}>
 													{smp.players} {smp.players === 1 ? "player" : "players"}
@@ -244,6 +243,7 @@ margins.push(0);
 													)}
 												</span>
 											)}
+											{smp.size && <span>{smp.size}</span>}
 										</div>
 
 										{!smp.missing && (
